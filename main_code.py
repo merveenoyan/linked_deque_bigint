@@ -437,55 +437,74 @@ class LinkedDeque(_DoublyLinkedBase): # note the use of inheritance
 ####################### debug ##########################
 
   def debug(self):
-    print("THIS IS DEBUG FUNCTION")
+   # print("THIS IS DEBUG FUNCTION")
     walk = self._header._next
+    output = ""
     while walk._next is not None:
-      print(walk._element)
+      output+=str(walk._element)
       walk = walk._next
+    print(output)
+
 
 
 ################### test ##########################
 
 if __name__=="__main__":
+#import pdb;pdb.set_trace()
+  s = input("Enter the operation:")
+  try:
+    splitted = s.split(" ")
+    if len(splitted) == 3:
+      s1 = splitted[0]
+      sign = splitted[1]
+      s2 = splitted[2]
+    else:
+      s1 = splitted[0]
+      sign = splitted[1]
+  except:
+    pass
+
   ld = LinkedDeque()
-  # test substraction
-  s1 = "20"
-  s2 = "319"
+  
+  if sign == "-":
+    result = ld.substractBigInt(s1, s2)
+    result.debug()
+  elif sign == "+":
+    result = ld.addBigInt(s1, s2)
+    result.debug()
+  elif sign == "==":
+    result = ld.equalBigInt(s1, s2)
+    print(result.debug())
+  elif sign == "*":
+    result = ld.multiplyBigInt(s1, s2)
+    result.debug()
+  elif sign == "i2p":
+    #s3 = "123*(238+3*4)+5"
+    postfix = ld.infix_to_postfix(s1)
+    print(postfix)
+  elif sign == "**":
+    result = ld.power(s1, s2)
+    result.debug()
 
-  result = ld.substractBigInt(s1, s2)
-  print(result.debug())
-
-  # test power
-  #s1 = "293"
-  #s2 = "192"
-
-  #result = ld.power(s1, s2)
-  #print(result.debug())
-
-
-  # test multiplication
-  #result = ld.multiplyBigInt(s1, s2)
-  #print(result)
 
   #test infix to post fix
-"""
-  s3 = "123*(238+3*4)+5"
-  ld = LinkedDeque()
-  postfix = ld.infix_to_postfix(s3)
-  print(postfix)  """
+  #s3 = "123*(238+3*4)+5"
+  #ld = LinkedDeque()
+  #postfix = ld.infix_to_postfix(s3)
+  #print(postfix)
 
   # check create bigint, freebigint
-"""bigint = ld.createBigInt(s3)
-  bigint.freeBigInt() 
-  print(bigint.debug())"""
+  #bigint = ld.createBigInt(s3)
+  #bigint.freeBigInt() 
+  #print(bigint.debug())
 
   # check update bigint and add bigint
-"""ld = LinkedDeque()
-  print(b1._header._next._element)
-  b1 = b1.updateBigInt(pos = 5, e = 5)
-  result = ld.addBigInt(s1, s2)  
-  print(result.debug()) """
+  #ld = LinkedDeque()
+  #print(b1._header._next._element)
+  #b1 = b1.updateBigInt(pos = 5, e = 5)
+  #result = ld.addBigInt(s1, s2)  
+  #print(result.debug()) """
   # check equal bigint
-""" equal = ld.equalBigInt(s1,s2)
-    print(equal) """
+  #equal = ld.equalBigInt(s1,s2)
+  #print(equal)
   
