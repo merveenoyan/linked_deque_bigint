@@ -4,3 +4,4 @@ My last minute term project with full of to-do's and OOP disasters.
 * Negative Numbers Support
 * Cleaner Tests
 * Better OOP design (create "BigInt" as a class inside the LinkedDeque instead)
+* Write power operation with nlogn efficiency
